@@ -23,15 +23,13 @@ var playerScore : int = 0
 while readLine(file, line) : 
 
     var opponent : int = line[0].toOctal.parseInt - 100
-    var player : int = line[2].toOctal.parseInt
-
-    var outcome : int = player - 131
+    var player : int = line[2].toOctal.parseInt - 131
     
-    outcome = (opponent + outcome)
-    if outcome == 0 : outcome = 3
-    if outcome == 4 : outcome = 1
+    player = (opponent + player)
+    if player == 0 : player = 3
+    if player == 4 : player = 1
 
-    playerScore += computeScore(opponent, outcome)
+    playerScore += computeScore(opponent, player)
 
 echo playerScore
 
