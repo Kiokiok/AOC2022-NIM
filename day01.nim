@@ -35,7 +35,3 @@ var total = topThree.foldl(a+b)
 
 echo highest
 echo total
-
-
-
-

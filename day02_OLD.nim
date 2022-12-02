@@ -33,13 +33,3 @@ while readLine(file, line) :
 echo playerScore
 
 close file
-
-
-
-
-
-
-
-
-
-
