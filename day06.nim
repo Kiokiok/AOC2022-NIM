@@ -3,15 +3,10 @@ import std/sequtils
 let file = open("sources/day06.txt")
 var source : string = readAll(file)
 
-echo source.len()
-
-
 var pcketStrt : seq[char]
 var counter : int = 0
 
-
-proc checkAllDiff() : bool =
-    
+proc checkAllDiff() : bool =  
     for c in pcketStrt:
         if pcketStrt.count(c) > 1:  return false
     echo pcketStrt
