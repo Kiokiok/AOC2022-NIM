@@ -46,12 +46,15 @@ var currentCommand : array[4,int] = [0,0,0,0]
 proc clear() = 
     currentCommand = [0,0,0,0]
 
-proc tryParseNum(str : string) =
+proc tryParseNum(str : string) : bool =
     if str.contains(Digits):
         var val = str.parseInt()
-
         currentCommand[currentCommand[0]] = (if currentCommand[0] == 1 : val else: (val - 1 ))
-    
+        return true
+    else :
+        return false
+
+
 proc exec() =
     if currentCommand == [0,0,0,0]: return
 
@@ -74,17 +77,17 @@ proc exec() =
 for tok in tokens :
     case tok :
         of "move":
-            exec()
-            clear()
+
             currentCommand[0] = 1
         of "from":
             currentCommand[0] = 2
         of "to" :
             currentCommand[0] = 3
         else :
-            tryParseNum(tok)
-
-exec()
+            if not tryParseNum(tok) :
+            # reached end of command
+                exec()
+                clear()
 
 var result : string
 
